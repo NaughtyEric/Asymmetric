@@ -1,3 +1,5 @@
 {
-  "item.asymmetric.track_tracer" : "行迹探测仪"
+  "item.asymmetric.route_tracker" : "行迹探测仪",
+  "item.asymmetric.route_tracker.tooltip1" : "探测距离使用者最近的玩家。",
+  "item.asymmetric.route_tracker.tooltip2" : "如果其距离使用者较近，赋予其30秒发光效果。"
 }

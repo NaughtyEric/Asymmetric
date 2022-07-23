@@ -1,3 +1,5 @@
 {
-  "item.asymmetric.track_tracer" : "Track Tracer"
+  "item.asymmetric.route_tracker" : "Route Tracker",
+  "item.asymmetric.route_tracker.tooltip1" : "Find out the location of the closet player.",
+  "item.asymmetric.route_tracker.tooltip2" : "Make them glowing if close enough."
 }
