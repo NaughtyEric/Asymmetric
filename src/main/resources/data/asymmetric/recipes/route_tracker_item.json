@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RWR",
+    "IRI",
+    "RIR"
+  ],
+  "key": {
+    "W": {
+      "tag": "minecraft:logs"
+    },
+    "R": {
+      "item": "minecraft:redstone"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "result": {
+    "item": "asymmetric:route_tracker",
+    "count": 2
+  }
+}
+

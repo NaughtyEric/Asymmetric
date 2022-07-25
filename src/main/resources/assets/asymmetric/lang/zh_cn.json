@@ -1,5 +1,9 @@
 {
   "item.asymmetric.route_tracker" : "行迹探测仪",
+  "item.asymmetric.push_back_bomb" : "震爆器",
   "item.asymmetric.route_tracker.tooltip1" : "探测距离使用者最近的玩家。",
-  "item.asymmetric.route_tracker.tooltip2" : "如果其距离使用者较近，赋予其30秒发光效果。"
+  "item.asymmetric.route_tracker.tooltip2" : "如果其距离使用者较近，赋予其30秒发光效果。",
+  "item.asymmetric.push_back_bomb.tooltip" : "短暂延迟后击飞附近7格内所有生物。",
+  "itemGroup.asymmetric.hunter" : "追杀者",
+  "itemGroup.asymmetric.survivor" : "逃脱者"
 }

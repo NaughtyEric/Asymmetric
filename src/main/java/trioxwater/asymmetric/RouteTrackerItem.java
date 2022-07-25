@@ -7,6 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -25,9 +26,9 @@ public class RouteTrackerItem extends Item {
     public TypedActionResult<ItemStack> use(World world, PlayerEntity playerEntity, Hand hand) {
         if (world.isClient()) return super.use(world, playerEntity, hand);
         List<? extends PlayerEntity> list;
-        list = world.getPlayers();
         PlayerEntity closestPlayer = null;
         double closestDis = 20000.0;
+        list = world.getPlayers();
         Vec3d userPos = playerEntity.getPos();
         //查找最近玩家
         for (PlayerEntity player: list) {
@@ -41,14 +42,15 @@ public class RouteTrackerItem extends Item {
             }
         }
         if (closestPlayer != null) {
+            Vec3d v = closestPlayer.getPos().relativize(userPos).normalize();
+            closestPlayer.playSound(SoundEvents.ENTITY_ELDER_GUARDIAN_CURSE,0.5F,1.0F);
+            for (int i = 0; i < 12; ++i)
+                world.addParticle(ParticleTypes.PORTAL, playerEntity.getX(), playerEntity.getY(),
+                        playerEntity.getZ(), v.getX() * 2, v.getY() * 2, v.getZ() * 2);
             if (closestDis <= 75.00) {
-                Vec3d v = closestPlayer.getPos().relativize(userPos).normalize();
-                for (int i = 0; i < 12; ++i)
-                    world.addParticle(ParticleTypes.PORTAL, playerEntity.getX(), playerEntity.getY(),
-                            playerEntity.getZ(), v.getX() * 2, v.getY() * 2, v.getZ() * 2);
+                closestPlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 1));
             }
             //赋予该玩家发光效果，持续30秒
-            closestPlayer.addStatusEffect(new StatusEffectInstance(StatusEffects.GLOWING, 600, 1));
         }
         playerEntity.getItemCooldownManager().set(this, 1200);
         return TypedActionResult.success(playerEntity.getStackInHand(hand));

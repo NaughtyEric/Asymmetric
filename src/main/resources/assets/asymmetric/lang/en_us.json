@@ -1,5 +1,7 @@
 {
   "item.asymmetric.route_tracker" : "Route Tracker",
   "item.asymmetric.route_tracker.tooltip1" : "Find out the location of the closet player.",
-  "item.asymmetric.route_tracker.tooltip2" : "Make them glowing if close enough."
+  "item.asymmetric.route_tracker.tooltip2" : "Make them glowing if close enough.",
+  "itemGroup.asymmetric.hunter" : "hunter",
+  "itemGroup.asymmetric.survivor" : "survivor"
 }
